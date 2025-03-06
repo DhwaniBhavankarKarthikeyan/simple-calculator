@@ -1,5 +1,9 @@
-def exponentiate(x, y):
-    return x ** y
+def get_valid_number(prompt):
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print("Invalid input. Please enter a numeric value.")
 
 def calculator():
     print("Select operation:")
@@ -15,12 +19,8 @@ def calculator():
         print("Invalid input")
         return
 
-    try:
-        num1 = float(input("Enter first number: "))
-        num2 = float(input("Enter second number: "))
-    except ValueError:
-        print("Invalid number input. Please enter numeric values.")
-        return
+    num1 = get_valid_number("Enter first number: ")
+    num2 = get_valid_number("Enter second number: ")
 
     if choice == "1":
         print(f"Result: {add(num1, num2)}")
